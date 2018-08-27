@@ -126,7 +126,7 @@ var svg = d3.select("body").append("svg")
     .attr("height", height);
 //==========================Create US Map========================
 //===============================================================
-d3.json("us_map.json", function(error, us) {
+d3.json("./css/us_map.json", function(error, us) {
   if (error) return console.error(error);
  console.log(us);
  //debugger;
@@ -171,7 +171,7 @@ function add_geodata(leaves){
 };
 //===============================================================
 //===============================================================
- d3.csv("Arrivals_year.csv", function(data){
+ d3.csv("./css/Arrivals_year.csv", function(data){
   console.log(data);
   var nested = d3.nest()
             .key(function(d){
@@ -475,7 +475,7 @@ function nFormatter(num, digits) {
 <body>
   <script type="text/javascript">
 console.log("Starting to load Airport.csv");
-d3.csv("airports.csv",draw);
+d3.csv("./css/airports.csv",draw);
   </script>
 <div   align="center" class="fixed">   
         <a style = 'color: black' href="https://goo.gl/forms/62WtocUq4khxeR8R2" class="btn btn-info btn-lg">
