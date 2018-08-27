@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>Airline On-Time Performance Visualization</title>
+
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" type="text/css" href="calendar.css">
+  <link rel="stylesheet" type="text/css" href="d3.slider.css">
+  <link rel="stylesheet" type="text/css" href="mapviz.css">
+  <link rel="stylesheet" type="text/css" href="jquery-ui-1.11.2.custom/jquery-ui.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1>Airline <br />On-Time<br /> Performance</h1>
+      <p>Tufts University<br />Data Visualization<br />Fall 2014</p>
+      <p class="view"><a href="https://github.com/flight-viz/flight-viz">View on GitHub</a></p>
+      <form id="airport-search">
+        <input type="text" id="airport-search-text" placeholder="Find an Airport Here" />
+
+        <p>&nbsp;</p>
+        <p>Hover over or click on an airport on the chord diagram to view all flights departing from that airport.</p>
+        <p>Hover over another airport to view the average delay between the two.</p>
+
+        <p>Use the year selector to change the year of data being visualized.</p>
+        <p>Use the calendar to change the week of data being visualized.</p>
+      </form>
+
+    </header>
+
+  </div>
+
+  <div id="viz-main">
+
+    <div id="chord-detail"></div>
+    <div id="chord"></div>
+
+    <div id="cal-selector">
+        <select id="year" onchange="Controller.changeYear(this.value);">
+            <option value = "2004, data/2004/2004_day_all.json">2004</option>
+            <option value = "2005, data/2005/2005_day_all.json">2005</option>
+            <option value = "2006, data/2006/2006_day_all.json">2006</option>
+            <option value = "2007, data/2007/2007_day_all.json">2007</option>
+            <option value = "2008, data/2008/2008_day_all.json">2008</option>
+        </select>
+        <button type="button" id="year-button" onclick="Controller.noWeekSelected();">Whole Year</button>
+        <div id="calendar" onclick = "Calendar.showSlider();">
+            <div id="cal-slider"></div>
+        </div>
+    </div>
+
+    <div id="chord-key">
+        <p>Key: 
+        <span class="g">On Time</span>
+        <span class="y">Somewhat Delayed (15+ Minutes)</span>
+        <span class="r">Very Delayed (30+ Minutes)</span></p>
+        <p>Line thickness indicates the number of flights between two airports.</p>
+    </div>
+              <div id="map"></div>
+
+  </div>
+
+  <footer>
+    <p>This project was created by Andrew Stephens (<a href="https://github.com/andrewmediaprod" class="user-mention">@andrewmediaprod</a>), Jaime Sanchez (<a href="https://github.com/jsanch" class="user-mention">@jsanch</a>), and Maya Saxena (<a href="https://github.com/mayasaxena" class="user-mention">@mayasaxena</a>).
+  </footer>
+
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="http://d3js.org/queue.v1.min.js"></script>
+        <script src="http://d3js.org/topojson.v1.min.js"></script>
+        <script src="javascripts/scale.fix.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="calendar.js"></script>
+        <script src="d3.slider.js"></script>
+        <script src="d3.tip.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
+        <script src="ChordViz.js"></script>
+        <script src="mapviz.js"></script>
+        <script src="Model.js"></script>
+
+        <script src="Controller.js"></script>
+
+
+    <script>
+        var weekSelected;
+        var thing = d3.slider().value(50).orientation("vertical").step(1.923).on("slide", function(evt, value, ws) {
+            Controller.weekSelect(ws);
+        });
+        d3.select("#cal-slider").call(thing);
+    </script>
+
+</body>
+</html>

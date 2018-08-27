@@ -1,0 +1,24 @@
+#cal-selector {
+  shape-rendering: crispEdges;
+
+}
+
+.day {
+  fill: #fff;
+  stroke: #ccc;
+}
+
+.month {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 2px;
+}
+
+
+.RdYlGn .under-fifteen{fill:#00a000;}
+.RdYlGn .fifteen-thirty{fill:#a0a000;}
+.RdYlGn .over-thirty{fill:#a00000;}
+
+
+
+

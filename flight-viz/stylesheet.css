@@ -1,0 +1,126 @@
+body {
+  font: 10px 'Roboto', sans-serif;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+#airport-search-text {
+    padding: 5px 10px;
+    border: 1px solid #808080;
+    font-family: "Roboto", sans-serif;
+}
+
+#viz-main {
+    /*margin-top: 25px;*/
+}
+
+
+#chord {
+    position: relative;
+    float: left;
+}
+
+#cal-selector {
+    float: right;
+    margin: auto;
+    text-align: center;
+    margin-right: 50px;
+}
+
+select {
+    font:14px sans-serif;
+    margin-left: 5px;
+    height: 25px;
+    width: 50%;
+    line-height: 1;
+    border: 1px solid #ccc;
+    float: center;
+}
+
+button {
+    clear: center;
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font:14px sans-serif;
+    margin-left: 5px;
+    margin-top: 10px;
+    height: 25px;
+
+}
+
+
+#calendar {
+    margin: auto;
+    min-width: 180px;
+    height: 800px;
+    position: relative;
+    clear:left;
+    z-index: 0;
+    overflow: hidden;
+}
+
+
+#cal-slider {
+    height: 884px;
+    width: 100%;
+    z-index: 5;
+    position: absolute;
+    top: 21px;
+    left: 0;
+    overflow: visible;
+}
+
+.outer path {
+    cursor: pointer;
+}
+
+.chord path {
+  fill-opacity: .67;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+#chord-detail {
+    width:600px;
+    text-transform: uppercase;
+    text-align: center;
+    height:40px;
+}
+
+#chord-detail strong {
+    color:black;
+}
+
+#chord-key {
+    clear:left;
+    width:600px;
+    font-size: 12px;
+    text-align: center;
+}
+
+#chord-key span {
+    display: inline-block;
+    padding-left:10px;
+}
+
+#chord-key .g { color: #00a000; }
+#chord-key .y { color: #a0a000; }
+#chord-key .r { color: #a00000; }
+
+#chord-key span:before {
+   content: "\25FC";
+}
+
+rect.day {
+    cursor: pointer;
+}
